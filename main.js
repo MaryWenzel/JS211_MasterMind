@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 let board = [];
-let solution = 'abcd';
+let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let hint;
 
@@ -37,13 +37,13 @@ const generateHint = (guess) =>  {
   let guessArray = guess.split('');
   let solutionArray = solution.split('');
   let correctLetterLocations = 0;
-  let correctLetters = 0;
   for (let i = 0; i < solutionArray.length; i++){
     if (guessArray[i] == solutionArray[i]){
       correctLetterLocations++
       solutionArray[i] = null
     }
   }
+  let correctLetters = 0;
       for (let x = 0; x < solutionArray.length; x++) {
         let targetIndex = solutionArray.indexOf(guessArray[x])
         console.log(targetIndex)
@@ -57,7 +57,7 @@ const generateHint = (guess) =>  {
 }
 
 const mastermind = (guess) => {
-  solution = 'abcd'; // Comment this out to generate a random solution
+  solution = ''; // Comment this out to generate a random solution
   // your code here
   if (guess === solution){
     return 'You guessed it!'
